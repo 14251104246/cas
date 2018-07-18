@@ -7,7 +7,6 @@ import org.apereo.cas.config.CasCoreUtilSerializationConfiguration;
 import org.apereo.cas.config.MemcachedTicketRegistryConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.ClassRule;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.autoconfigure.RefreshAutoConfiguration;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.rules.SpringClassRule;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -39,10 +37,6 @@ import java.util.Collection;
 @Slf4j
 @Category(CouchbaseCategory.class)
 public class MemcachedTicketRegistryTests extends BaseSpringRunnableTicketRegistryTests {
-
-    @ClassRule
-    public static final SpringClassRule SPRING_CLASS_RULE = new SpringClassRule();
-
     @Autowired
     @Qualifier("ticketRegistry")
     private TicketRegistry registry;

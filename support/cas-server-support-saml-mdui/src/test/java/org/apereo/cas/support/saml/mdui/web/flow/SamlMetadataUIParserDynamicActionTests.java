@@ -11,7 +11,6 @@ import org.apereo.cas.web.support.WebUtils;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Import;
@@ -20,7 +19,6 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.webflow.context.servlet.ServletExternalContext;
 import org.springframework.webflow.execution.Action;
 import org.springframework.webflow.test.MockRequestContext;
@@ -33,13 +31,11 @@ import static org.junit.Assert.*;
  * @author Misagh Moayyed
  * @since 4.1.0
  */
-@RunWith(SpringRunner.class)
 @Import({SamlMetadataUIConfiguration.class, SamlMetadataUIWebflowConfiguration.class})
 @TestPropertySource(properties = "cas.samlMetadataUi.resources=http://mdq-beta.incommon.org/global/entities/::")
 @ContextConfiguration(initializers = EnvironmentConversionServiceInitializer.class)
 @Slf4j
 public class SamlMetadataUIParserDynamicActionTests extends AbstractOpenSamlTests {
-
     @Autowired
     @Qualifier("samlMetadataUIParserAction")
     private Action samlMetadataUIParserAction;
